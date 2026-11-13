@@ -1,0 +1,38 @@
+/*
+ * Page-level stylesheet, adopted on document.adoptedStyleSheets (CSSOM, so it is not
+ * blocked by page CSP). Every selector is keyed on a dcf-owned attribute: nothing here
+ * can match Cloudflare's own markup. No bare element selectors, no preflight.
+ *
+ * Host layout (position, pointer-events, z-index) is applied inline by core/host.ts so it
+ * survives a missing sheet. Only target-side rules live here.
+ */
+[data-dcf-underlay] {
+  background-color: transparent !important;
+  background-image: none !important;
+  border-color: transparent !important;
+}
+/* Keyboard focus rings are box-shadows: keep them while the target itself has focus-visible. */
+[data-dcf-underlay]:not(:focus-visible) {
+  box-shadow: none !important;
+}
+/* Only static targets get a containing block. Plain selector, so a page sticky/absolute rule still wins. */
+:where([data-dcf-pos]) {
+  position: relative;
+  isolation: isolate;
+}
+[data-dcf-hidden] {
+  opacity: 0 !important;
+}
+/* Underlay stand-ins paint above the target's own background on positioned targets. */
+[data-dcf-underlay] {
+  isolation: isolate;
+}
+/* Selected Kumo tab paints an opaque background that would hide the dither-button pill. */
+[data-dcf-tab-selected] {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+/* Kumo emphasis buttons paint a decorative gradient child above the underlay. */
+[data-dcf-underlay="button"] > span.absolute.inset-0 {
+  opacity: 0 !important;
+}

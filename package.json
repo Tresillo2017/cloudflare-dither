@@ -1,0 +1,54 @@
+{
+  "name": "cloudflare-dither",
+  "version": "0.1.0",
+  "description": "Userscript that re-skins the Cloudflare dashboard with dithercn dither components",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "playwright test",
+    "fixture": "node scripts/serve-fixture.mjs --port 0",
+    "screenshots": "node scripts/build.mjs && node scripts/screenshots.mjs"
+  },
+  "keywords": [
+    "userscript",
+    "cloudflare",
+    "dither",
+    "dithercn",
+    "violentmonkey",
+    "tampermonkey",
+    "kumo",
+    "react"
+  ],
+  "author": "Tomás Palma",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@cloudflare/kumo": "^2.18.0",
+    "@phosphor-icons/react": "^2.1.10",
+    "@playwright/test": "1.65.0",
+    "@tailwindcss/cli": "^4.3.5",
+    "@types/node": "22.20.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "clsx": "^2.1.1",
+    "echarts": "^6.1.0",
+    "esbuild": "^0.28.2",
+    "playwright": "^1.65.0",
+    "radix-ui": "^1.8.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwind-merge": "^3.7.0",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^7.0.2",
+    "zod": "^4.6.7"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tresillo2017/cloudflare-dither.git"
+  },
+  "homepage": "https://github.com/Tresillo2017/cloudflare-dither#readme",
+  "bugs": {
+    "url": "https://github.com/Tresillo2017/cloudflare-dither/issues"
+  }
+}

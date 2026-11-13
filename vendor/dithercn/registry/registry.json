@@ -1,0 +1,1307 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "homepage": "https://dithercn.dev",
+  "items": [
+    {
+      "name": "dither-tokens",
+      "type": "registry:item",
+      "title": "Dither tokens",
+      "description": "CSS variables every dithercn piece reads: ink, paper, cell size, bloom strength and the named colour palette (blue, purple, green, pink, orange, red, grey), tuned for light and dark.",
+      "cssVars": {
+        "theme": {
+          "color-dither-ink": "var(--dither-ink)",
+          "color-dither-paper": "var(--dither-paper)",
+          "color-dither-blue": "var(--dither-color-blue)",
+          "color-dither-purple": "var(--dither-color-purple)",
+          "color-dither-green": "var(--dither-color-green)",
+          "color-dither-pink": "var(--dither-color-pink)",
+          "color-dither-orange": "var(--dither-color-orange)",
+          "color-dither-red": "var(--dither-color-red)",
+          "color-dither-grey": "var(--dither-color-grey)"
+        }
+      },
+      "css": {
+        "@layer base": {
+          ":root": {
+            "--dither-ink": "var(--primary)",
+            "--dither-paper": "var(--background)",
+            "--dither-cell": "3px",
+            "--dither-color-blue": "oklch(0.56 0.18 248)",
+            "--dither-color-purple": "oklch(0.53 0.22 302)",
+            "--dither-color-green": "oklch(0.58 0.15 152)",
+            "--dither-color-pink": "oklch(0.58 0.21 355)",
+            "--dither-color-orange": "oklch(0.64 0.17 52)",
+            "--dither-color-red": "oklch(0.55 0.21 27)",
+            "--dither-color-grey": "oklch(0.55 0 0)",
+            "--dither-bloom": "0.6"
+          },
+          ".dark": {
+            "--dither-ink": "var(--primary)",
+            "--dither-paper": "var(--background)",
+            "--dither-cell": "3px",
+            "--dither-color-blue": "oklch(0.72 0.14 240)",
+            "--dither-color-purple": "oklch(0.7 0.18 304)",
+            "--dither-color-green": "oklch(0.78 0.17 152)",
+            "--dither-color-pink": "oklch(0.74 0.17 354)",
+            "--dither-color-orange": "oklch(0.79 0.15 62)",
+            "--dither-color-red": "oklch(0.68 0.2 25)",
+            "--dither-color-grey": "oklch(0.66 0 0)",
+            "--dither-bloom": "1"
+          }
+        }
+      }
+    },
+    {
+      "name": "dither-core",
+      "type": "registry:lib",
+      "title": "Dither core",
+      "description": "The engine every dithercn component uses: threshold matrices with blue noise, a WebGL dither shader, SVG patterns and CSS masks, image dithering, theme colours and motion hooks.",
+      "docs": "dithercn's components are examples built on this engine. To have your coding agent build any dither of its own on it, add the agent skill if you haven't: npx shadcn@latest add https://dithercn.dev/r/dithercn-skill.json",
+      "registryDependencies": [
+        "utils",
+        "https://dithercn.dev/r/dither-tokens.json"
+      ],
+      "files": [
+        {
+          "path": "lib/dither/index.ts",
+          "type": "registry:lib",
+          "target": "lib/dither/index.ts"
+        },
+        {
+          "path": "lib/dither/matrices.ts",
+          "type": "registry:lib",
+          "target": "lib/dither/matrices.ts"
+        },
+        {
+          "path": "lib/dither/blue-noise.ts",
+          "type": "registry:lib",
+          "target": "lib/dither/blue-noise.ts"
+        },
+        {
+          "path": "lib/dither/tokens.ts",
+          "type": "registry:lib",
+          "target": "lib/dither/tokens.ts"
+        },
+        {
+          "path": "lib/dither/color.ts",
+          "type": "registry:lib",
+          "target": "lib/dither/color.ts"
+        },
+        {
+          "path": "lib/dither/motion.ts",
+          "type": "registry:lib",
+          "target": "lib/dither/motion.ts"
+        },
+        {
+          "path": "lib/dither/glsl.ts",
+          "type": "registry:lib",
+          "target": "lib/dither/glsl.ts"
+        },
+        {
+          "path": "lib/dither/shader.tsx",
+          "type": "registry:lib",
+          "target": "lib/dither/shader.tsx"
+        },
+        {
+          "path": "lib/dither/pattern.tsx",
+          "type": "registry:lib",
+          "target": "lib/dither/pattern.tsx"
+        },
+        {
+          "path": "lib/dither/style.ts",
+          "type": "registry:lib",
+          "target": "lib/dither/style.ts"
+        },
+        {
+          "path": "lib/dither/fill.tsx",
+          "type": "registry:lib",
+          "target": "lib/dither/fill.tsx"
+        },
+        {
+          "path": "lib/dither/diffuse.ts",
+          "type": "registry:lib",
+          "target": "lib/dither/diffuse.ts"
+        }
+      ]
+    },
+    {
+      "name": "dither-glow",
+      "type": "registry:component",
+      "title": "Dither glow",
+      "description": "A soft dithered spotlight from an edge, a corner or any point, for heroes and cards.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dither-glow.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dither-glow.tsx"
+        }
+      ]
+    },
+    {
+      "name": "mesh-gradient",
+      "type": "registry:component",
+      "title": "Mesh gradient",
+      "description": "Three to five colour blobs that drift and blend, drawn as a dither.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/mesh-gradient.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/mesh-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "noise-field",
+      "type": "registry:component",
+      "title": "Noise field",
+      "description": "A slow, folding noise texture in four styles (smoke, ridges, contours, marble), with a sized mask that clears space for text.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/noise-field.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/noise-field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "aurora",
+      "type": "registry:component",
+      "title": "Aurora",
+      "description": "Curtains of light that fold, sway and shimmer, drawn as a dither, with props for colours, curtains, rays, tilt, drift and masks.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/aurora.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/aurora.tsx"
+        }
+      ]
+    },
+    {
+      "name": "waves",
+      "type": "registry:component",
+      "title": "Waves",
+      "description": "Layered swells under a glowing horizon, or thin lines like a sound wave.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/waves.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/waves.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dither-fade",
+      "type": "registry:component",
+      "title": "Dither fade",
+      "description": "A dithered edge that fades a section's content into a solid colour.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dither-fade.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dither-fade.tsx"
+        }
+      ]
+    },
+    {
+      "name": "plasma",
+      "type": "registry:component",
+      "title": "Plasma",
+      "description": "Classic plasma: overlapping sine waves that flow into each other, dithered in two colours or a palette.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/plasma.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/plasma.tsx"
+        }
+      ]
+    },
+    {
+      "name": "starfield",
+      "type": "registry:component",
+      "title": "Starfield",
+      "description": "Dithered stars in three parallax layers that twinkle and drift slowly.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/starfield.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/starfield.tsx"
+        }
+      ]
+    },
+    {
+      "name": "halftone",
+      "type": "registry:component",
+      "title": "Halftone",
+      "description": "Print-style round dots on a rotated grid that grow with a noise, radial or linear source.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/halftone.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/halftone.tsx"
+        }
+      ]
+    },
+    {
+      "name": "horizon",
+      "type": "registry:component",
+      "title": "Horizon",
+      "description": "A planet's horizon from space: a lit rim, a drifting aurora glow and fixed stars.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/horizon.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/horizon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "beams",
+      "type": "registry:component",
+      "title": "Beams",
+      "description": "God rays from a point or an edge that sweep slowly and fade with distance.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/beams.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/beams.tsx"
+        }
+      ]
+    },
+    {
+      "name": "eclipse",
+      "type": "registry:component",
+      "title": "Eclipse",
+      "description": "A dark disc with a glowing rim and a soft corona that breathes slowly.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/eclipse.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/eclipse.tsx"
+        }
+      ]
+    },
+    {
+      "name": "world-land",
+      "type": "registry:lib",
+      "title": "World land mask",
+      "description": "A 3.8 KB land mask of the world from Natural Earth (public domain), shared by the dither globe and the dot map.",
+      "files": [
+        {
+          "path": "components/dithercn/world-land.ts",
+          "type": "registry:lib",
+          "target": "components/dithercn/world-land.ts"
+        }
+      ]
+    },
+    {
+      "name": "dot-map",
+      "type": "registry:component",
+      "title": "Dot map",
+      "description": "A flat world map in dithered dots with pulsing markers, dithered halos and dotted arcs.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json",
+        "https://dithercn.dev/r/world-land.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dot-map.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dot-map.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dither-globe",
+      "type": "registry:component",
+      "title": "Dither globe",
+      "description": "A rotating dithered globe with land, a lit terminator, and optional pulsing markers and arcs.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json",
+        "https://dithercn.dev/r/world-land.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dither-globe.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dither-globe.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dither-orb",
+      "type": "registry:component",
+      "title": "Dither orb",
+      "description": "A lit, dithered orb that slowly morphs and leans towards the pointer.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dither-orb.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dither-orb.tsx"
+        }
+      ]
+    },
+    {
+      "name": "contours",
+      "type": "registry:component",
+      "title": "Contours",
+      "description": "A topographic map: contour lines over slowly drifting hills, with heavier index lines and a light hillshade.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/contours.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/contours.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ripples",
+      "type": "registry:component",
+      "title": "Ripples",
+      "description": "Concentric rings spreading from one to four points and crossing like drops on still water.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/ripples.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/ripples.tsx"
+        }
+      ]
+    },
+    {
+      "name": "retro-grid",
+      "type": "registry:component",
+      "title": "Retro grid",
+      "description": "A perspective grid floor scrolling towards a horizon under a striped, glowing sun.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/retro-grid.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/retro-grid.tsx"
+        }
+      ]
+    },
+    {
+      "name": "silk",
+      "type": "registry:component",
+      "title": "Silk",
+      "description": "Folds of silk catching the light, with a bright highlight along each crest.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/silk.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/silk.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tunnel",
+      "type": "registry:component",
+      "title": "Tunnel",
+      "description": "A slow flight down a tunnel of round or square rings, with spokes along the walls and fog at the vanishing point.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/tunnel.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/tunnel.tsx"
+        }
+      ]
+    },
+    {
+      "name": "smoke",
+      "type": "registry:component",
+      "title": "Smoke",
+      "description": "Soft smoke billowing upward and thinning out, lit from above, with props for scale, height, wind and density.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/smoke.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/smoke.tsx"
+        }
+      ]
+    },
+    {
+      "name": "metaballs",
+      "type": "registry:component",
+      "title": "Metaballs",
+      "description": "Soft blobs that drift, merge and split like a lava lamp, as shaded shapes or rings of contour lines.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/metaballs.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/metaballs.tsx"
+        }
+      ]
+    },
+    {
+      "name": "ridgelines",
+      "type": "registry:component",
+      "title": "Ridgelines",
+      "description": "Stacked ridge lines like a pulsar plot, each hiding the ones behind it, with peaks that shift slowly.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/ridgelines.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/ridgelines.tsx"
+        }
+      ]
+    },
+    {
+      "name": "flow-field",
+      "type": "registry:component",
+      "title": "Flow field",
+      "description": "A wind map: streamlines of a slowly turning, swirling flow, with bright streaks that travel along them and leave fading tails.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/flow-field.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/flow-field.tsx"
+        }
+      ]
+    },
+    {
+      "name": "voronoi",
+      "type": "registry:component",
+      "title": "Voronoi Cells",
+      "description": "A cellular surface like soap foam, crackle glaze or raised stone tiles, with walls of one width and seeds that drift so cells swell, shrink and trade edges.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/voronoi.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/voronoi.tsx"
+        }
+      ]
+    },
+    {
+      "name": "galaxy",
+      "type": "registry:component",
+      "title": "Galaxy",
+      "description": "A tilted spiral galaxy turning slowly, with a bright core, arms with knots of stars, dust lanes and fixed stars behind.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/galaxy.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/galaxy.tsx"
+        }
+      ]
+    },
+    {
+      "name": "moire",
+      "type": "registry:component",
+      "title": "Moiré",
+      "description": "Two fine gratings of lines, rings or mesh laid over each other and sliding slowly, so huge interference bands bloom, sweep and turn across the box.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/moire.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/moire.tsx"
+        }
+      ]
+    },
+    {
+      "name": "rain",
+      "type": "registry:component",
+      "title": "Rain",
+      "description": "Rain on a window at night: soft out-of-focus city lights behind the glass, beads that show them brighter like tiny lenses, and bigger drops that slide down in jerky runs and leave wet trails.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/rain.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/rain.tsx"
+        }
+      ]
+    },
+    {
+      "name": "black-hole",
+      "type": "registry:component",
+      "title": "Black Hole",
+      "description": "A black hole with a thin photon ring and a hot accretion disk seen at a slant, its far side lensed over the top and under the bottom, streaming round with one side brighter.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/black-hole.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/black-hole.tsx"
+        }
+      ]
+    },
+    {
+      "name": "fire",
+      "type": "registry:component",
+      "title": "Fire",
+      "description": "Flames rising from the edge of the box, with a hot base, tapering tongues that lick up and tear off, and embers that drift above them.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/fire.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/fire.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dither-gradient",
+      "type": "registry:component",
+      "title": "Dither gradient",
+      "description": "A linear, radial or conic gradient drawn as a dither, with a slow noise drift.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dither-gradient.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dither-gradient.tsx"
+        }
+      ]
+    },
+    {
+      "name": "cartesian-chart",
+      "type": "registry:component",
+      "title": "Cartesian chart",
+      "description": "The shared frame behind the area, line and bar charts: scales, axes, the hover readout, the legend and an accessible data table.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/cartesian-chart.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/cartesian-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "area-chart",
+      "type": "registry:component",
+      "title": "Area chart",
+      "description": "One or more series drawn as a crisp line over a dithered fill that is densest under the line.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json",
+        "https://dithercn.dev/r/cartesian-chart.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/area-chart.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/area-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "bar-chart",
+      "type": "registry:component",
+      "title": "Bar chart",
+      "description": "Vertical bars, grouped or stacked, each filled with a dither and capped with a solid edge.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json",
+        "https://dithercn.dev/r/cartesian-chart.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/bar-chart.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/bar-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "line-chart",
+      "type": "registry:component",
+      "title": "Line chart",
+      "description": "Lines for one or more series, with optional dithered range bands and point markers.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json",
+        "https://dithercn.dev/r/cartesian-chart.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/line-chart.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/line-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sparkline",
+      "type": "registry:component",
+      "title": "Sparkline",
+      "description": "A tiny inline trend for tables and stat cards: a line, a dithered area and a dot on the latest value.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/sparkline.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/sparkline.tsx"
+        }
+      ]
+    },
+    {
+      "name": "heatmap",
+      "type": "registry:component",
+      "title": "Heatmap",
+      "description": "A calendar or matrix heatmap built from dither cells: each square steps from a few dots to solid, with a readout and a level scale.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/heatmap.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/heatmap.tsx"
+        }
+      ]
+    },
+    {
+      "name": "gauge",
+      "type": "registry:component",
+      "title": "Gauge",
+      "description": "A radial gauge of dithered blocks that fill in to the value, with the reading in the middle.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/gauge.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/gauge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "progress-bar",
+      "type": "registry:component",
+      "title": "Progress bar",
+      "description": "A progress bar built from dither cells: any fill texture with a solid leading edge, stacked parts, step segments and an indeterminate comet.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/progress-bar.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/progress-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "uptime-bar",
+      "type": "registry:component",
+      "title": "Uptime bar",
+      "description": "A status-page row of daily dithered bars with per-day tooltips and overall uptime.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/uptime-bar.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/uptime-bar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "donut-chart",
+      "type": "registry:component",
+      "title": "Donut chart",
+      "description": "A donut or pie chart drawn in dither cells, with a colour and texture per slice, a spotlight and a centre that follows the pointer.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/donut-chart.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/donut-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "stat-card",
+      "type": "registry:component",
+      "title": "Stat card",
+      "description": "A KPI card with a value, a coloured delta and a dithered trend area on a dotted surface.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/stat-card.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/stat-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "radar-chart",
+      "type": "registry:component",
+      "title": "Radar chart",
+      "description": "Series across several axes, drawn as polygons of dither cells whose density steps up ring by ring, with an axis scrub and legend spotlight.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/radar-chart.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/radar-chart.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dithercn-skill",
+      "type": "registry:item",
+      "title": "dithercn agent skill",
+      "description": "An agent skill that teaches Claude Code, Codex, Cursor and other coding agents to build any dither on the engine. Installs into .agents/skills/dithercn and .claude/skills/dithercn, with the engine and dither-export.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json",
+        "https://dithercn.dev/r/dither-export.json"
+      ],
+      "files": [
+        {
+          "path": ".generated/skills/dithercn/SKILL.md",
+          "type": "registry:file",
+          "target": ".agents/skills/dithercn/SKILL.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/engine-api.md",
+          "type": "registry:file",
+          "target": ".agents/skills/dithercn/references/engine-api.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/examples.md",
+          "type": "registry:file",
+          "target": ".agents/skills/dithercn/references/examples.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/fields.md",
+          "type": "registry:file",
+          "target": ".agents/skills/dithercn/references/fields.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/landing-pages.md",
+          "type": "registry:file",
+          "target": ".agents/skills/dithercn/references/landing-pages.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/placement.md",
+          "type": "registry:file",
+          "target": ".agents/skills/dithercn/references/placement.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/quality.md",
+          "type": "registry:file",
+          "target": ".agents/skills/dithercn/references/quality.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/recipes.md",
+          "type": "registry:file",
+          "target": ".agents/skills/dithercn/references/recipes.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/theme.md",
+          "type": "registry:file",
+          "target": ".agents/skills/dithercn/references/theme.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/SKILL.md",
+          "type": "registry:file",
+          "target": ".claude/skills/dithercn/SKILL.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/engine-api.md",
+          "type": "registry:file",
+          "target": ".claude/skills/dithercn/references/engine-api.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/examples.md",
+          "type": "registry:file",
+          "target": ".claude/skills/dithercn/references/examples.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/fields.md",
+          "type": "registry:file",
+          "target": ".claude/skills/dithercn/references/fields.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/landing-pages.md",
+          "type": "registry:file",
+          "target": ".claude/skills/dithercn/references/landing-pages.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/placement.md",
+          "type": "registry:file",
+          "target": ".claude/skills/dithercn/references/placement.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/quality.md",
+          "type": "registry:file",
+          "target": ".claude/skills/dithercn/references/quality.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/recipes.md",
+          "type": "registry:file",
+          "target": ".claude/skills/dithercn/references/recipes.md"
+        },
+        {
+          "path": ".generated/skills/dithercn/references/theme.md",
+          "type": "registry:file",
+          "target": ".claude/skills/dithercn/references/theme.md"
+        }
+      ]
+    },
+    {
+      "name": "dither-export",
+      "type": "registry:lib",
+      "title": "Dither export",
+      "description": "Save dithers as files: PNG through a canvas, compact SVG with merged runs, and CSS backgrounds or masks from a data-URI tile.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "lib/dither/export.ts",
+          "type": "registry:lib",
+          "target": "lib/dither/export.ts"
+        }
+      ]
+    },
+    {
+      "name": "dither-image",
+      "type": "registry:component",
+      "title": "Dither image",
+      "description": "Any image dithered to a preset (ink, duotone, newsprint, gameboy, riso) or your own palette, resolving from coarse to fine.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dither-image.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dither-image.tsx"
+        }
+      ]
+    },
+    {
+      "name": "image-compare",
+      "type": "registry:component",
+      "title": "Image compare",
+      "description": "A draggable, keyboard-accessible before and after slider between a dithered image and the original or another dither.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json",
+        "https://dithercn.dev/r/dither-image.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/image-compare.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/image-compare.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scroll-reveal-image",
+      "type": "registry:component",
+      "title": "Scroll reveal image",
+      "description": "An image that sharpens from coarse dithered blocks to the full photo as it scrolls into view.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json",
+        "https://dithercn.dev/r/dither-image.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/scroll-reveal-image.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/scroll-reveal-image.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dithered-logo",
+      "type": "registry:component",
+      "title": "Dithered logo",
+      "description": "An SVG or PNG logo redrawn on a pixel grid with exact edges, a dithered fill and an optional shimmer or scan line.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json",
+        "https://dithercn.dev/r/dither-image.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dithered-logo.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dithered-logo.tsx"
+        }
+      ]
+    },
+    {
+      "name": "logo-marquee",
+      "type": "registry:component",
+      "title": "Logo marquee",
+      "description": "A looping row or still wall of logos in one dithered treatment, with soft or dithered edge fades.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json",
+        "https://dithercn.dev/r/dithered-logo.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/logo-marquee.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/logo-marquee.tsx"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:component",
+      "title": "Skeleton",
+      "description": "Loading placeholders for blocks, text lines and avatars, drawn in dither, with a dense band that sweeps across or a pulse that steps through the Bayer levels.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/skeleton.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/skeleton.tsx"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:component",
+      "title": "Avatar",
+      "description": "A generative avatar drawn from a string as a mirrored dither face on a lit, dithered disc, with an overlapping avatar group.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/avatar.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/avatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "loader",
+      "type": "registry:component",
+      "title": "Loader",
+      "description": "A small dithered loading indicator: a ring with a comet tail, three dissolving dots, a pulse or a bar.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/loader.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/loader.tsx"
+        }
+      ]
+    },
+    {
+      "name": "divider",
+      "type": "registry:component",
+      "title": "Divider",
+      "description": "A horizontal or vertical dithered rule with fading ends and an optional label.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/divider.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/divider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dither-card",
+      "type": "registry:component",
+      "title": "Dither card",
+      "description": "A card with a dithered glow in a corner or along an edge and a dithered rim on its border, which can grow on hover.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dither-card.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dither-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty-state",
+      "type": "registry:component",
+      "title": "Empty state",
+      "description": "A lit, dithered illustration (box, magnifier, folder or planet) with a title, a description and an action, for views with nothing in them yet.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/empty-state.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/empty-state.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dropzone",
+      "type": "registry:component",
+      "title": "Dropzone",
+      "description": "A file drop area with a dithered dashed border that marches round its edge, thickens and pulls a glow in on drag-over and turns red for a rejected file, with a file list showing dithered progress.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json",
+        "https://dithercn.dev/r/dither-button.json",
+        "https://dithercn.dev/r/progress-bar.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dropzone.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dropzone.tsx"
+        }
+      ]
+    },
+    {
+      "name": "not-found",
+      "type": "registry:component",
+      "title": "Not found",
+      "description": "A complete 404 block with a big dithered code, a message and actions.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/not-found.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/not-found.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dither-button",
+      "type": "registry:component",
+      "title": "Dither button",
+      "description": "A button with a lit, dithered surface that brightens on hover and presses in on click, in four fills, two variants and any palette colour.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dither-button.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dither-button.tsx"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ]
+    },
+    {
+      "name": "dither-switch",
+      "type": "registry:component",
+      "title": "Dither switch",
+      "description": "A Radix toggle switch whose track fills with dither behind the thumb, stepping through the Bayer levels, with a lit dithered knob, four fills and any palette colour.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dither-switch.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dither-switch.tsx"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ]
+    },
+    {
+      "name": "dither-slider",
+      "type": "registry:component",
+      "title": "Dither slider",
+      "description": "A range slider on Radix Slider whose fill is a Bayer ramp that gets denser towards a lit, dithered thumb, with one or two thumbs, steps, tick marks and a readout.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dither-slider.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dither-slider.tsx"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ]
+    },
+    {
+      "name": "dither-tabs",
+      "type": "registry:component",
+      "title": "Dither tabs",
+      "description": "Tabs whose dithered pill or underline indicator glides to the chosen tab, dissolving out of the old one and in at the new one through the Bayer levels.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dither-tabs.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dither-tabs.tsx"
+        }
+      ],
+      "dependencies": [
+        "radix-ui"
+      ]
+    },
+    {
+      "name": "dither-text",
+      "type": "registry:component",
+      "title": "Dither text",
+      "description": "Display text whose letters are filled with a dithered gradient, noise, dots or hatching in any palette colour, kept as real, selectable text.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dither-text.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dither-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dissolve-text",
+      "type": "registry:component",
+      "title": "Dissolve text",
+      "description": "Text that dissolves in through Bayer thresholds by character, word or line, in any order, settling solid or into a dithered texture.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dissolve-text.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dissolve-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "scramble-text",
+      "type": "registry:component",
+      "title": "Scramble text",
+      "description": "Text that resolves character by character through dithered blocks and glyphs, with no layout shift, on mount, in view, hover or text change.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/scramble-text.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/scramble-text.tsx"
+        }
+      ]
+    },
+    {
+      "name": "dither-number",
+      "type": "registry:component",
+      "title": "Dither number",
+      "description": "An animated number with tabular digits that roll or resolve through a dither, Intl formatting, prefix and suffix, colour and size presets.",
+      "registryDependencies": [
+        "https://dithercn.dev/r/dither-core.json"
+      ],
+      "files": [
+        {
+          "path": "components/dithercn/dither-number.tsx",
+          "type": "registry:component",
+          "target": "components/dithercn/dither-number.tsx"
+        }
+      ]
+    }
+  ],
+  "name": "dithercn"
+}

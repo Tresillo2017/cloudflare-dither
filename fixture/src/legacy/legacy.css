@@ -1,0 +1,23 @@
+/* Pre-Kumo dashboard styling. Class names are hashed on purpose, like a CSS-in-JS build. */
+.xk3a9 { font-family: system-ui, sans-serif; color: #1d1f21; background: #f7f7f8; min-height: 100vh; margin: 0; }
+.pq72n { display: flex; align-items: center; gap: 16px; padding: 12px 24px; background: #ffffff; border-bottom: 1px solid #e3e3e6; }
+.r81bw { font-weight: 600; color: #f38020; text-decoration: none; }
+.h4cd0 { display: flex; gap: 12px; margin-left: auto; }
+.h4cd0 a { color: #3b3f46; text-decoration: none; font-size: 14px; }
+.z7e2m { padding: 24px; display: grid; gap: 16px; max-width: 1100px; margin: 0 auto; }
+.k2s9x { background: #ffffff; border: 1px solid #e3e3e6; border-radius: 8px; padding: 16px; }
+.k2s9x h2 { font-size: 14px; margin: 0 0 8px; color: #5b6069; font-weight: 500; }
+.w5t1q { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.m8c3j { font-size: 28px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.d6v0f { font-size: 12px; color: #2e7d32; }
+.d6v0f[data-trend="down"] { color: #c62828; }
+.g1y7b { width: 100%; height: auto; display: block; }
+.t3n8p { width: 100%; border-collapse: collapse; font-size: 14px; }
+.t3n8p th, .t3n8p td { text-align: left; padding: 8px; border-bottom: 1px solid #ededf0; }
+.u9a4e { display: flex; gap: 2px; align-items: flex-end; height: 28px; }
+.u9a4e span { flex: 1; background: #2e7d32; border-radius: 1px; }
+.u9a4e span[data-status="degraded"] { background: #f9a825; }
+.u9a4e span[data-status="down"] { background: #c62828; }
+.b2f6s { border: 1px solid #c7c9ce; background: #ffffff; border-radius: 6px; padding: 6px 12px; font-size: 14px; cursor: pointer; }
+.b2f6s[data-primary="true"] { background: #f38020; border-color: #f38020; color: #ffffff; }
+.s7l0y { font-size: 12px; color: #5b6069; }

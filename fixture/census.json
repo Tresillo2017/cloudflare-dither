@@ -1,0 +1,242 @@
+{
+  "routes": {
+    "home": {
+      "route": "/",
+      "dataMode": "light",
+      "kumoComponent": {
+        "Badge": 5,
+        "Breadcrumbs": 3,
+        "Button": 46,
+        "ButtonGroup": 1,
+        "Checkbox": 3,
+        "Dialog": 1,
+        "Link": 5,
+        "LinkButton": 2,
+        "Popover": 1,
+        "Radio": 7,
+        "Select": 1,
+        "Sidebar": 8,
+        "Switch": 5,
+        "Tabs": 5
+      },
+      "kumoPart": {
+        "item": 3,
+        "item-label": 3,
+        "items": 1,
+        "link": 3,
+        "menu-button": 7,
+        "overflow-control": 2,
+        "tab": 3,
+        "trigger": 4
+      },
+      "sidebar": {
+        "content": 1,
+        "content-container": 1,
+        "group": 4,
+        "group-label": 3,
+        "header": 1,
+        "menu": 4,
+        "menu-button": 7,
+        "menu-item": 8,
+        "peek-zone": 1,
+        "sidebar": 1,
+        "trigger": 1,
+        "viewport": 1
+      },
+      "roles": {
+        "checkbox": 3,
+        "combobox": 1,
+        "group": 2,
+        "img": 3,
+        "meter": 1,
+        "presentation": 5,
+        "radio": 3,
+        "radiogroup": 1,
+        "region": 1,
+        "status": 2,
+        "switch": 5,
+        "tab": 3,
+        "tablist": 1
+      },
+      "testIds": {
+        "auto-renew-state": 1,
+        "button-matrix": 1,
+        "click-count": 1,
+        "dropzone": 1,
+        "rate-limit-value": 1,
+        "tab-panel": 1,
+        "theme-toggle": 1,
+        "upload-name": 1
+      },
+      "echartsInstances": 3,
+      "canvases": 3,
+      "svgs": 23,
+      "svgRoleImg": [
+        "Cloudflare logo"
+      ],
+      "cloudflareLogo": 1,
+      "images": [
+        {
+          "src": "/assets/avatar.svg",
+          "alt": "Account avatar"
+        },
+        {
+          "src": "/assets/screenshot.svg",
+          "alt": "Analytics screenshot"
+        },
+        {
+          "src": "/assets/hero.svg",
+          "alt": "Hero illustration"
+        },
+        {
+          "src": "/assets/avatar.svg",
+          "alt": "Team avatar"
+        }
+      ],
+      "buttons": 68,
+      "links": 11,
+      "inputs": {
+        "checkbox": 8,
+        "file": 1,
+        "radio": 3,
+        "range": 2,
+        "text": 4
+      },
+      "tables": 1,
+      "hr": 10,
+      "progressElements": 1,
+      "meters": 1,
+      "uploads": 1,
+      "ranges": 2,
+      "styleTags": 1,
+      "dataKumoClassSample": 254
+    },
+    "legacy": {
+      "route": "/legacy",
+      "dataMode": "light",
+      "kumoComponent": {},
+      "kumoPart": {},
+      "sidebar": {},
+      "roles": {
+        "img": 3,
+        "region": 1
+      },
+      "testIds": {
+        "button-primary": 1,
+        "button-toggle-table": 1,
+        "kpi-card": 4,
+        "legacy-click-count": 1,
+        "link-analytics": 1,
+        "link-homepage": 1,
+        "link-login": 1,
+        "link-overview": 1,
+        "nav-main": 1,
+        "theme-toggle": 1,
+        "traffic-card": 1,
+        "uptime-card": 1,
+        "zones-card": 1,
+        "zones-table": 1
+      },
+      "echartsInstances": 0,
+      "canvases": 0,
+      "svgs": 8,
+      "svgRoleImg": [
+        "Requests line chart",
+        "Errors bar chart",
+        "Traffic by country donut"
+      ],
+      "cloudflareLogo": 0,
+      "images": [],
+      "buttons": 3,
+      "links": 4,
+      "inputs": {},
+      "tables": 1,
+      "hr": 0,
+      "progressElements": 0,
+      "meters": 0,
+      "uploads": 0,
+      "ranges": 0,
+      "styleTags": 0,
+      "dataKumoClassSample": 1
+    },
+    "login": {
+      "route": "/login",
+      "dataMode": "light",
+      "kumoComponent": {
+        "Button": 2,
+        "Checkbox": 1,
+        "LinkButton": 1
+      },
+      "kumoPart": {},
+      "sidebar": {},
+      "roles": {
+        "checkbox": 1,
+        "img": 1,
+        "region": 1
+      },
+      "testIds": {
+        "theme-toggle": 1
+      },
+      "echartsInstances": 0,
+      "canvases": 0,
+      "svgs": 3,
+      "svgRoleImg": [
+        "Cloudflare logo"
+      ],
+      "cloudflareLogo": 1,
+      "images": [
+        {
+          "src": "/assets/hero.svg",
+          "alt": "Login hero"
+        }
+      ],
+      "buttons": 3,
+      "links": 1,
+      "inputs": {
+        "checkbox": 1,
+        "email": 1,
+        "password": 1
+      },
+      "tables": 0,
+      "hr": 0,
+      "progressElements": 0,
+      "meters": 0,
+      "uploads": 0,
+      "ranges": 0,
+      "styleTags": 0,
+      "dataKumoClassSample": 16
+    },
+    "missing": {
+      "route": "/missing",
+      "dataMode": "light",
+      "kumoComponent": {
+        "Link": 1
+      },
+      "kumoPart": {},
+      "sidebar": {},
+      "roles": {
+        "region": 1
+      },
+      "testIds": {
+        "theme-toggle": 1
+      },
+      "echartsInstances": 0,
+      "canvases": 0,
+      "svgs": 0,
+      "svgRoleImg": [],
+      "cloudflareLogo": 0,
+      "images": [],
+      "buttons": 1,
+      "links": 1,
+      "inputs": {},
+      "tables": 0,
+      "hr": 0,
+      "progressElements": 0,
+      "meters": 0,
+      "uploads": 0,
+      "ranges": 0,
+      "styleTags": 0,
+      "dataKumoClassSample": 5
+    }
+  }
+}

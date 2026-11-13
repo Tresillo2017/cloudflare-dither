@@ -1,0 +1,31 @@
+node_modules/
+.DS_Store
+.remember/
+
+# Private: saved copies of a real dashboard account and anything rendered from them
+real-dom/
+docs/real/
+docs/real-audit/
+docs/shots/
+docs/logs/
+docs/controls-shots/
+
+# Working notes and research
+notes/
+RESEARCH/
+
+# Build and test output (the userscript bundle itself is committed)
+dist/*
+!dist/cloudflare-dither.user.js
+fixture/dist/
+fixture/screenshots/
+test-results/
+playwright-report/
+tests/screenshots/
+
+# Internal development logs
+docs/polish-log.md
+docs/review-log.md
+
+# Close-up crops are regenerated on demand
+docs/screenshots/crops/

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "plasma",
+  "title": "Plasma",
+  "description": "Classic plasma: overlapping sine waves that flow into each other, dithered in two colours or a palette.",
+  "registryDependencies": [
+    "https://dithercn.dev/r/dither-core.json"
+  ],
+  "files": [
+    {
+      "path": "components/dithercn/plasma.tsx",
+      "content": "\"use client\";\n\nimport { cssColor, DitherShader } from \"@/lib/dither\";\nimport type { DitherPalette, DitherShaderProps } from \"@/lib/dither\";\n\nexport type PlasmaProps = Omit<\n  DitherShaderProps,\n  \"field\" | \"uniforms\" | \"fallback\"\n> & {\n  /** Size of the blobs. Higher values pack more of them in. Default 1. */\n  scale?: number;\n  /** How far slow noise bends the interference pattern, 0 to 1. Default 0.3. */\n  warp?: number;\n  /** How many times the colours cycle across one wave. Default 1.5. */\n  bands?: number;\n  /** The brightest tone, 0 to 1. Lower it to sit text on top. Default 1. */\n  intensity?: number;\n};\n\nconst FIELD = `\nfloat field(vec2 uv, vec2 res, float t) {\n  float aspect = res.x / res.y;\n  vec2 p = vec2((uv.x - 0.5) * aspect, uv.y - 0.5) * 4.2 * plasmaScale;\n\n  // A slow noise warp keeps the classic sine pattern from looking mechanical.\n  vec2 warp = vec2(\n    fbm(p * 0.35 + vec2(t * 0.05, 0.0)),\n    fbm(p * 0.35 + vec2(3.7, 1.9) - vec2(0.0, t * 0.04))\n  ) - 0.5;\n  p += warp * 3.0 * plasmaWarp;\n\n  float v = sin(p.x * 0.9 + t * 0.31);\n  v += sin(p.y * 1.1 - t * 0.23);\n  v += sin((p.x * 0.6 + p.y * 0.8) * 1.2 + t * 0.17);\n  vec2 orbit = vec2(sin(t * 0.13) * 1.6, cos(t * 0.11) * 1.2);\n  v += sin(length(p - orbit) * 1.4 - t * 0.29);\n\n  float tone = 0.5 + 0.5 * sin(v * 0.785398 * plasmaBands);\n  // Bias towards paper so the darks open up and only the crests reach ink.\n  tone = pow(smoothstep(0.05, 1.0, tone), 1.7);\n  return tone * plasmaIntensity;\n}\n`;\n\nconst DEFAULT_PLASMA_PALETTE: DitherPalette = [\n  \"--dither-paper\",\n  \"--chart-5\",\n  \"--dither-ink\",\n];\n\n/** Soft overlapping blobs in the palette's colours, shown without WebGL. */\nconst fallbackImage = (palette: DitherPalette, intensity: number) => {\n  const top = cssColor(palette.at(-1) ?? palette[1]);\n  const mid = cssColor(palette[1]);\n  const paper = cssColor(palette[0]);\n  const fade = `${Math.round(intensity * 70)}%`;\n  return [\n    `radial-gradient(ellipse 45% 55% at 28% 35%, color-mix(in oklab, ${top} ${fade}, transparent), transparent 70%)`,\n    `radial-gradient(ellipse 50% 45% at 72% 68%, color-mix(in oklab, ${mid} ${fade}, transparent), transparent 70%)`,\n    `linear-gradient(${paper}, ${paper})`,\n  ].join(\", \");\n};\n\n/**\n * Classic plasma: overlapping sine waves that flow into each other, drawn as\n * a dither. Works in two colours or a whole palette. Decorative and\n * full-bleed: size it with `className`, usually `absolute inset-0`.\n */\nexport const Plasma = ({\n  scale = 1,\n  warp = 0.3,\n  bands = 1.5,\n  intensity = 1,\n  palette = DEFAULT_PLASMA_PALETTE,\n  stillTime = 9,\n  ...props\n}: PlasmaProps) => (\n  <DitherShader\n    {...props}\n    field={FIELD}\n    palette={palette}\n    stillTime={stillTime}\n    uniforms={{\n      plasmaBands: Math.max(0.1, bands),\n      plasmaIntensity: Math.min(1, Math.max(0, intensity)),\n      plasmaScale: Math.max(0.05, scale),\n      plasmaWarp: Math.max(0, warp),\n    }}\n    fallback={\n      <div\n        className=\"absolute inset-0\"\n        style={{ backgroundImage: fallbackImage(palette, intensity) }}\n      />\n    }\n  />\n);\n",
+      "type": "registry:component",
+      "target": "components/dithercn/plasma.tsx"
+    }
+  ],
+  "type": "registry:component"
+}
